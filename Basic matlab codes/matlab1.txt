@@ -1,0 +1,38 @@
+x = [ 1 2 3; 8 6 5]
+y = x +x;
+z= y*x';
+z1= 2. * z;
+zz= mydd(z,z1);
+p= imread('C:\Users\GMRAO\Desktop\img_0036.bmp');
+
+x=200;
+y=277;
+i=x-20;
+k=x+20;
+for j=y-20:y+20
+    p(i,j,1)=255;
+    p(k,j,1)=255;
+    p(i,j,2)=0;
+    p(k,j,2)=0;
+    p(i,j,3)=0;
+    p(k,j,3)=0;
+end
+j=y-20
+k=y+20
+for i=x-20:x+20
+    p(i,j,1)=255;
+    p(i,k,1)=255;
+    p(i,j,2)=0;
+    p(i,k,2)=0;
+    p(i,j,3)=0;
+    p(i,k,3)=0;
+end 
+imshow(p);
+% imwrite(p,'C:\Users\GMRAO\Desktop\new.png','png');
+% pp1=rgb2gray(p);
+% imshow(pp1);
+m=imresize(p,0.75);
+n=imresize(p,0.1);
+o=imresize(p,0.3);
+p=imrotate(p,50);
+subplot(2,2,1),imshow(p);subplot(2,2,2),imshow(n);subplot(2,2,3),imshow(m);subplot(2,2,4),imshow(o);
